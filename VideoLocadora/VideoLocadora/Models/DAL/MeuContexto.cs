@@ -21,6 +21,7 @@ namespace VideoLocadora.Models.DAL
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
         
     }
 }

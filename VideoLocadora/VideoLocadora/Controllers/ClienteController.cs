@@ -41,7 +41,7 @@ namespace VideoLocadora.Controllers
            
         }
 
-        public ActionResult Details(int ? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -59,7 +59,7 @@ namespace VideoLocadora.Controllers
             return View(cli);
         }
 
-        public ActionResult Edit(int ? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -91,7 +91,7 @@ namespace VideoLocadora.Controllers
             return View(cli);
         }
 
-        public ActionResult Delete(int ? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -121,5 +121,14 @@ namespace VideoLocadora.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Lista()
+        {
+            MeuContexto contexto = new MeuContexto();
+            List<Cliente> lista = contexto.Clientes.ToList();
+
+            return View(lista);
+        }
+
     }
 }
