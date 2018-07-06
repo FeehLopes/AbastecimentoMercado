@@ -129,6 +129,30 @@ namespace VideoLocadora.Controllers
 
             return View(lista);
         }
+        public ActionResult BuscarNome()
+        {
+            Session["lista"] = null;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult BuscarNome(string nome)
+        {
+            MeuContexto contexto = new MeuContexto();
+            var clie = contexto.Clientes.Where(c => c.Nome.ToLower().Equals(nome.ToLower()));
+            
+            List<Cliente> lista = clie.ToList();
+            ViewBag.Lista = lista;
+            if(lista.Count > 0)
+            {
+                Session["lista"] = clie;
+            }
+            else
+            {
+                Session["lista"] = null;
+                ViewBag.Message = "Nada encontrado no sistema para: " + nome;
+            }
 
+            return View();
+        }
     }
 }

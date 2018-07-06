@@ -1,0 +1,95 @@
+﻿@using VideoLocadora.Models
+
+@{
+    ViewBag.Title = "BuscarNome";
+}
+
+<h2>Buscar Nome</h2>
+<body id="body">
+    @using (Html.BeginForm("BuscarNome", "Cliente", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizonta">
+            
+            <hr />
+            <div class="form-group">
+                @Html.Label("Nome:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="nome" class="form-control" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        if (Session["lista"] != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        <h5 style="text-align:center">Nome</h5>
+                    </th>
+                    <th>
+                        <h5>CPF</h5>
+                    </th>
+                    <th>
+                        <h5>Enderco</h5>
+                    </th>
+                    <th>
+                        <h5>Telefone</h5>
+                    </th>
+                    <th>
+                        <h5>Celular</h5>
+                    </th>
+                   
+                                </tr>
+
+                @foreach (Cliente item in ViewBag.Lista)
+                {
+                    <tr>
+
+                        <td>
+                            <h5> @item.Nome</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.CPF</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Endereco</h5>
+                            </td>
+                        <td>
+                            <h5> @item.Telefone</h5>
+                        </td>
+                        <td>
+                            <h5> @item.Celular</h5>
+                        </td>
+                        
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ClienteId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ClienteId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ClienteId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+        else
+        {
+            <h4 style="text-align:center">@ViewBag.Message</h4>
+        }
+
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+
+    
+</body>

@@ -1,33 +1,46 @@
-﻿@{
+﻿@using  VideoLocadora.Models
+@model IEnumerable<Filme>
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-     <h1></h1>
+
+
     @*<img src="~/fonts/Logo.jpg"  height="300" width="1000"/>*@
     <div class="col-md-12" style="color:black; text-align:center; font:menu;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:40px">
-        <h2>Felipe Locadora</h2>
+        <marquee direction="right" style="font-family:'Times New Roman', Times, serif; color:brown">Felipe Locadora</marquee>
+        <img class="img" src="~/fonts/Movie-time-design-elements-vector-backgrounds-02.jpg" style="width: 550px; height: 300px" />
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        </p><iframe src="https://giphy.com/embed/pUeXcg80cO8I8" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/michael-jackson-comments-popcorn-pUeXcg80cO8I8"></a></p>
+    </div>
+</div>
+<div class="row">
+
+    
+            <div class="col-md-4">
+                <h2>Promoções</h2>
+        <p>Confira nossas promoções</p>
+                <img class="img" src="~/fonts/Promoção-é-a-alma-do-negócio.png" style="width: 100px; height: 80px; margin: 5px;" &nbsp; 
+        <p><a class="btn btn-default" @Html.ActionLink("Saiba mais", "Promocoes", "FilmesLocados") &raquo;</a></p>
+               
+    </div>
+
+    <div class="col-md-4">
+        <h2>Cinema</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <div style="text-align: center;">Filmes que estreiam nesse Mês De Agosto nos Cinemas de todo Brasil</div>
+            <img class="img" src="~/fonts/ci.png" style="width: 100px; height: 80px; margin: 5px;" &nbsp;
+        <p><a class="btn btn-default" href="http://cinepop.com.br/em-breve-nos-cinemas-2018"> Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Entretenimento</h2>
+        <p>Tudo o que Rola no mundo do Cinema, Teadro, Gastronomia e Música</p>
+        <img class="img" src="~/fonts/mu.jpg" style="width: 100px; height: 90px; margin: 5px;" &nbsp;
+        <p><a class="btn btn-default" href="http://df.divirtasemais.com.br/">Learn more &raquo;</a></p>
     </div>
 </div>

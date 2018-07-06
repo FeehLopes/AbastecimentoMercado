@@ -40,8 +40,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.Codigo)
         </td>
-       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.FilmeId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.FilmeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.FilmeId })
+        </td>
     </tr>
+
 }
+    
 
 </table>

@@ -30,18 +30,26 @@
                             @if (Request.IsAuthenticated)
                             {
                                 <li>@Html.ActionLink("Lista de Clientes", "Lista", "Cliente")</li>
-
-                                <li>@Html.ActionLink("Editar Cliente", "Edit", "Cliente")</li>
+                                <li>@Html.ActionLink("Reservas", "Lista", "Reserva")</li>
+                               <li>@Html.ActionLink("Buscar Cliente", "BuscarNome", "Cliente")</li>
+                               <li>@Html.ActionLink("Buscar Filme", "BuscarFilme", "Filme")</li>
+                            <li>@Html.ActionLink("Buscar Reservas", "BuscarReservas", "Reserva")</li>
+                            <li>@Html.ActionLink("Buscar Locados", "BuscarLocados", "FilmesLocados")</li>
                             }
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Filmes <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Lista de Filmes", "Lista", "Filme")</li>
+                            <li>@Html.ActionLink("Lançamentos", "Filmes", "Filme")</li>
+                            <li>@Html.ActionLink("Acervo", "FilmesAcervo", "Filme")</li>
+                            <li>@Html.ActionLink("Próximos Lançamentos", "FilmesProximosLancamentos", "Filme")</li>
+
                             @if (Request.IsAuthenticated)
+
                             {
-                                <li>@Html.ActionLink("Editar Cliente", "Edit", "Cliente")</li>
+                                <li>@Html.ActionLink("Filmes Locados","Lista","FilmesLocados")</li>
+                                <li>@Html.ActionLink("Lista de Filmes", "Lista", "Filme")</li>
 
                             }
                         </ul>

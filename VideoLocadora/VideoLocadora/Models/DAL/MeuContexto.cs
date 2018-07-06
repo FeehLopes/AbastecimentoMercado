@@ -17,11 +17,14 @@ namespace VideoLocadora.Models.DAL
             //Migrations (pra produção)
 
 
-            Database.SetInitializer<MeuContexto>(new DropCreateDatabaseIfModelChanges<MeuContexto>());
+           Database.SetInitializer<MeuContexto>(new DropCreateDatabaseIfModelChanges<MeuContexto>());
         }
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Filme> Filmes { get; set; }
+        public DbSet<FilmesLocados> Alugados { get; set; }
+        public DbSet<Reserva> Reservas { get; set; }
+
         
     }
 }

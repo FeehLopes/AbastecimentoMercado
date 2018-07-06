@@ -1,0 +1,95 @@
+﻿@using VideoLocadora.Models
+@{
+    ViewBag.Title = "BuscarLocados";
+}
+
+<h2>Buscar Locados</h2>
+<body id="body">
+    @using (Html.BeginForm("BuscarLocados", "FilmesLocados", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizonta">
+
+            <hr />
+            <div class="form-group">
+                @Html.Label("Nome:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="nome" class="form-control" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        if (Session["lista"] != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        <h5 style="text-align:center">Nome Cliente</h5>
+                    </th>
+                    <th>
+                        <h5>Nome Do(S) Filme(S)</h5>
+                    </th>
+                    <th>
+                        <h5>Quantidade</h5>
+                    </th>
+                    <th>
+                        <h5>Data Inicio</h5>
+                    </th>
+                    <th>
+                        <h5>Data Final</h5>
+                    </th>
+
+                </tr>
+
+                @foreach (FilmesLocados item in ViewBag.Lista)
+                {
+                    <tr>
+
+                        <td>
+                            <h5> @item.NomeCliente</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.NomeFilme</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Quantidade</h5>
+                        </td>
+                        <td>
+                            <h5> @item.DataInicio</h5>
+                        </td>
+                        <td>
+                            <h5> @item.DataFinal</h5>
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.FilmesLocadosId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.FilmesLocadosId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.FilmesLocadosId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+        else
+        {
+            <h4 style="text-align:center">@ViewBag.Message</h4>
+        }
+
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+
+
+</body>
+

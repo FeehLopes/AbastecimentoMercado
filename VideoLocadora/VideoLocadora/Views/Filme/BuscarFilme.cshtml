@@ -1,0 +1,92 @@
+﻿
+@using VideoLocadora.Models
+@{
+    ViewBag.Title = "BuscarFilme";
+}
+
+<h2>Buscar Filme</h2>
+
+<body id="body">
+    @using (Html.BeginForm("BuscarFilme", "Filme", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizonta">
+
+            <hr />
+            <div class="form-group">
+                @Html.Label("Nome:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="nome" class="form-control" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        if (Session["lista"] != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        <h5 style="text-align:center">Titulo</h5>
+                    </th>
+                    <th>
+                        <h5>Classificação</h5>
+                    </th>
+                    <th>
+                        <h5>GÊNERO</h5>
+                    </th>
+                    <th>
+                        <h5>Código</h5>
+                    </th>
+                   
+
+                </tr>
+
+                @foreach (Filme item in ViewBag.Lista)
+                {
+                    <tr>
+
+                        <td>
+                            <h5> @item.Titulo</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Classificacao</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Genero</h5>
+                        </td>
+                        <td>
+                            <h5> @item.Codigo</h5>
+                        </td>
+                        
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.FilmeId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.FilmeId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.FilmeId})
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+        else
+        {
+            <h4 style="text-align:center">@ViewBag.Message</h4>
+        }
+
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+
+
+</body>
